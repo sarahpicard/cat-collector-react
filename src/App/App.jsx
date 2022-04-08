@@ -18,6 +18,7 @@ import ProtectedRoute from '../components/ProtectedRoute/ProtectedRoute'
 // Services
 import * as authService from '../services/authService'
 import * as catService from '../services/cats'
+import * as toyService from '../services/toys'
 
 // Image Assets
 import CoolCat from '../assets/cool-cat.svg'
@@ -49,12 +50,23 @@ function App() {
     fetchData()
   }, [])
 
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await toyService.getAll()
+      setToys(data)
+    }
+    fetchData()
+  }, [])
+
   const addCat = async (catData) => {
     const cat = await catService.create(catData)
     setCats([...cats, cat])
   }
 
-  const addToy = async (toyData) => {}
+  const addToy = async (toyData) => {
+    const toy = await toyService.create(toyData)
+    setToys([...toys, toy])
+  }
 
   const updateCat = async (catData) => {
     const updatedCat = await catService.update(catData)
@@ -63,14 +75,22 @@ function App() {
     )))
   }
 
-  const updateToy = async (toyData) => {}
+  const updateToy = async (toyData) => {
+    const updatedToy = await toyService.update(toyData)
+    setToys(toys.map((toy) => (
+      toy.id === updatedToy.id ? updatedToy : toy
+    )))
+  }
 
   const deleteCat = async (id) => {
     await catService.deleteOne(id)
     setCats(cats.filter(cat => cat.id !== parseInt(id)))
   }
 
-  const deleteToy = async (id) => {}
+  const deleteToy = async (id) => {
+    await toyService.deleteOne(id)
+    setToys(toys.filter(toy => toy.id !== parseInt(id)))
+  }
 
   const handleLogout = () => {
     authService.logout()
