@@ -170,9 +170,13 @@ nav li:hover {
   margin-left: 20px;
 }
 
-
 .confirmation {
   padding-left: 20px;
+}
+
+.card-title-container {
+  padding-left: 12px;
+  padding-right: 12px;
 }
 
 @media only screen and (min-width: 768px) {

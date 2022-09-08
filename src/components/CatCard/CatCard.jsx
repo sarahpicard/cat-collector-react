@@ -13,9 +13,11 @@ const CatCard = ({ cat, catImages }) => {
         <div className="card-img-container">
           <img className="usr-img" src={catImages[idx]} alt={`${cat.name}`} />
         </div>
-        <h2 className="card-title">{cat.name}</h2>
-        <p>{ageString}</p>
-        <p><small>{cat.description}</small></p>
+        <div className='card-title-container'>
+          <h2 className="card-title">{cat.name}</h2>
+          <p>{ageString}</p>
+          <p><small>{cat.description}</small></p>
+          </div>
       </div>
     </Link>
   )
