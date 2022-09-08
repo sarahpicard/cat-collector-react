@@ -35,7 +35,7 @@ function App() {
   const [cats, setCats] = useState([])
   const [toys, setToys] = useState([])
   const [user, setUser] = useState(authService.getUser())
-  
+
   const catImages = [
     SkaterCat, CoolCat,
     NerdCat, HappyCat,

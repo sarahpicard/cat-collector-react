@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 
 const CatCard = ({ cat, catImages }) => {
   const ageString = cat.age > 0
-    ? `A ${cat.age} year old ${cat.breed}`
+    ? `A ${cat.age} year old ${cat.breed ? cat.breed : "Cat"}`
     : `A ${cat.breed} kitten.`
 
   const idx = Math.floor(Math.random() * (catImages.length))

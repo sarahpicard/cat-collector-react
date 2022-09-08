@@ -16,11 +16,11 @@ const CatList = ({ cats, catImages }) => {
       <section className="card-container">
         {cats.map((cat) => (
           <CatCard
-            cat={cat}
-            key={cat.id}
-            catImages={catImages}
+          cat={cat}
+          key={cat.id}
+          catImages={catImages}
           />
-        ))}
+          ))}
       </section>
     </>
   )
